@@ -1,15 +1,8 @@
 class Human {
   static totalPeople = 0;
   _name; // ES2016 property declaration syntax
-  constructor(name) {
-    this._name = name;
+  constructor(protected name: string, private age: number ) {
     Human.totalPeople += 1;
-  }
-  get name() {
-    return this._name;
-  }
-  set name(val) {
-    this._name = val;
   }
   talk() {
     return `Hi, I'm ${this.name}!`;
@@ -18,17 +11,13 @@ class Human {
 
 class Developer extends Human {
   _languages; // ES2016 property declaration syntax
-  constructor(name, languages) {
-    super(name);
-    this._languages = languages;
-  }
-  get languages() {
-    return this._languages;
+  constructor(name: string, private languages:string[], age: number ) {
+    super(name, age);
   }
   talk() {
     return `${super.talk()} And I know ${this.languages.join(', ')}.`;
   }
 }
-
-console.log(new Developer('abc', ['js']).talk());
-//P46
+let human = new Human('foo', 42);
+human.age = 42;
+human.name = 'bar';

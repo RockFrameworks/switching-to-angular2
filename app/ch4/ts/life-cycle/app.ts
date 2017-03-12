@@ -16,9 +16,6 @@ class Panel {
   ngDoCheck() {
     console.log('Do check');
   }
-  ngOnDestroy() {
-    console.log('Destroy');
-  }
   ngAfterContentInit() {
     console.log('After content init');
   }
@@ -30,6 +27,30 @@ class Panel {
   }
   ngAfterViewChecked() {
     console.log('After view checked');
+  }
+
+//  ngAfterContentChecked() {
+//    console.log('After content checked');
+//  }
+//  ngAfterViewChecked() {
+//    console.log('After view checked');
+//  }
+
+/*
+On changes Object {title: SimpleChange, caption: SimpleChange}
+app.ts:14 Initialized
+app.ts:17 Do check
+app.ts:20 After content init
+app.ts:23 After content checked
+app.ts:26 After view init
+app.ts:29 After view checked
+lang.ts:389 Angular 2 is running in the development mode. Call enableProdMode() to enable the production mode.
+app.ts:17 Do check
+app.ts:23 After content checked
+app.ts:29 After view checked
+ */
+  ngOnDestroy() {
+    console.log('Destroy');
   }
 }
 

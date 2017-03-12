@@ -1,6 +1,6 @@
 class Person {
   @nonenumerable
-  get kidCount() {
+  get kidCount() {		//why get???
     return 42;
   }
 }
@@ -13,7 +13,10 @@ function nonenumerable(target, name, descriptor) {
 var person = new Person();
 
 for (let prop in person) {
-  console.log(prop);
+  console.log(prop, 'fuck');
 }
 
-console.log(person.kidCount);
+console.log(person.kidCount, 'person.kidCount:>>');
+
+//P47
+//Object.defineProperty( Person.prototype, 'kidCount', descriptor );
